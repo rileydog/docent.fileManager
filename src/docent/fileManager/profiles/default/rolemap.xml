@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<rolemap>
+  <roles>
+    <role name="File Manager"/>
+  </roles>
+  <permissions>
+    <permission name="Docent.fileManager: manageHistory"
+                acquire="True">
+      <role name="Manager"/>
+      <role name="File Manager"/>
+    </permission>
+  </permissions>
+</rolemap>

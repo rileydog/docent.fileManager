@@ -1,0 +1,31 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    i18n_domain="docent.fileManager">
+
+    <browser:menuItem
+        for="plone.app.contenttypes.interfaces.IFile"
+        menu="plone_displayviews"
+        title="File Manager"
+        action="@@view_history"
+        description="Display file history to file manager."
+        />
+
+    <browser:page
+      name="view_history"
+      for="plone.app.contenttypes.interfaces.IFile"
+      class="docent.fileManager.browser.filemanagerview.FileManagerView"
+      template="templates/file_manager_view.pt"
+      permission="zope2.View"
+      />
+
+    <browser:menuItem
+        for="plone.app.contenttypes.interfaces.IFile"
+        menu="plone_displayviews"
+        title="File History View"
+        action="@@view_history"
+        description="Show File Managers file history."
+        />
+
+</configure>

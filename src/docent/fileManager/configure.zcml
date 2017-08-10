@@ -1,0 +1,41 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="docent.fileManager">
+
+  <i18n:registerTranslations directory="locales" />
+
+  <includeDependencies package="." />
+
+  <include package=".browser" />
+
+  <permission
+    id="docent.manageHistory"
+    title="Docent.fileManager: manageHistory"
+/>
+
+  <genericsetup:registerProfile
+      name="default"
+      title="docent.fileManager"
+      directory="profiles/default"
+      description="Installs the docent.fileManager add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.post_install"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="docent.fileManager (uninstall)"
+      directory="profiles/uninstall"
+      description="Uninstalls the docent.fileManager add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      post_handler=".setuphandlers.uninstall"
+      />
+
+
+  <utility
+      factory=".setuphandlers.HiddenProfiles"
+      name="docent.fileManager-hiddenprofiles" />
+
+</configure>

@@ -1,0 +1,5 @@
+====================
+docent.fileManager
+====================
+
+User documentation
