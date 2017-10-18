@@ -38,16 +38,12 @@
   <div tal:condition="view/has_manage_history">
       <h3>File Manager Access</h3>
       <p>File history presented below. If no data presented, versioning may be disabled or none may exist for this file.</p>
-    <script type="text/javascript">
-            $.ajax({
-   url:'./@@historyview',
-   type:'GET',
-   success: function(data){
-       $('#history_log').html($(data).find('#history-list').html());
-   }
-            });
-    </script>
-    <div id="history_log"></div>
+    <div id="history_log">
+        <table tal:define="version_dicts view/getHistory">
+          <tr><th>Date Uploaded</th><th>Member</th><th>Preview Link</th></tr>
+          <tr tal:repeat="version_dict version_dicts"><span tal:replace="structure python: view.getTableRow(version_dict)" /></tr>
+      </table>
+    </div>
   </div>
 </metal:block>
 </metal:content-core>
